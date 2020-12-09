@@ -23,9 +23,9 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+ $app->withFacades();
 
-// $app->withEloquent();
+ $app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +105,15 @@ $app->configure('app');
 | can respond to, as well as the controllers that may handle them.
 |
 */
+//注册config的文件
+foreach (\Symfony\Component\Finder\Finder::create()->files()->name('*.php')->in($app->basePath('config')) as $file) {
+    $filename = $file->getFileName();
+    $place = strpos($filename, '.php');
+    if ($place > 0) {
+        $filename = mb_substr($filename, 0, $place);
+        $app->configure($filename);
+    }
+}
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
