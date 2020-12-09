@@ -11,6 +11,5 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+//测试路由
+$router->get('test' , 'ExampleController@test');
