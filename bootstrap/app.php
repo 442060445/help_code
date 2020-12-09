@@ -90,6 +90,11 @@ $app->configure('app');
 | totally optional, so you are not required to uncomment this line.
 |
 */
+//redis缓存类的注册
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
+
+//自主开发MODEL 类
+$app->register(App\Providers\ModelServiceProvider::class);
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);

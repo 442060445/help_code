@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 
 class ExampleController extends Controller
@@ -17,9 +18,10 @@ class ExampleController extends Controller
     }
 
     public function test() {
-        echo 1;
-        Redis::set("test", '123');
-
+        app()->get('JdBeanModel')->create(['code'=>'test']);
+        app()->get('JdBeanModel')->where('id','1')->delete();
+        Cache::put('123','123',86400);
+        Cache::get('123');
     }
     //
 }

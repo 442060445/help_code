@@ -13,3 +13,8 @@
 
 //测试路由
 $router->get('test' , 'ExampleController@test');
+//加入助力码
+$router->get('/{type}/create/{code}' , 'CodeController@create');
+
+//读取助力码
+$router->get('/{type}/read' , 'CodeController@read');

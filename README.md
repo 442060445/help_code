@@ -1,24 +1,52 @@
-# Lumen PHP Framework
+###安装
+首先 
+```
+cp .env.example .env
+```
+  
+####选择缓存方式：
+- 文件缓存
+```
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+```
+- REDIS 缓存
+```
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=sync
+CACHE_PREFIX=缓存前缀
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+REDIS_HOST=REDIS的主机
+REDIS_DATABASE=REDIS的库
+REDIS_PASSWORD=REDIS的密码
+```
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+####数据库链接：
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
 
-## Contributing
+####修改赞助人名称
+```
+SPONSOREDBY=赞助人名称
+```
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+####决定使用的语言:
+- 中文
+```
+APP_LOCALE=zh-CN
+```
+- 英文
+```
+APP_LOCALE=en
+```
+####语言包存放路径：
+- `resource/lang/en`
+- `resource/lang/zh-CN`
