@@ -1,10 +1,14 @@
 <?php
-namespace App\Http\Business;
+/**
+ * 读取Mysql + redis  顺序版本
+ */
+namespace App\Http\Business\V1;
 
 use App\Http\Common\Helper;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 
 class CodeBusiness
 {
@@ -28,7 +32,9 @@ class CodeBusiness
         }
     }
 
-    public function read($type){
+    public function read($type,$rankCount){
+        //随机数量机制(解释：获取顺序：传进来的要求几个 > 京东配置 的最大助力个数 > 10个)
+        $rankCount = empty($rankCount)? isset(config('typeToQuantity')[$type])?config('typeToQuantity')[$type] : 10 : $rankCount;
         $typeModelArray = config('typeToModel');
         $typeArray = array_keys($typeModelArray);
         if(!in_array($type,$typeArray)){
@@ -49,6 +55,7 @@ class CodeBusiness
             $page = 0;
             Cache::put($type."_page",$page,86400);
         }
+        //获取数据
         if(empty(Cache::get($type."_".$page."_time")) || Cache::get($type."_".$page."_time") >= env('MAX_OUTPUT_TIME',25)){
             $page ++;
             $result = $this->generateCodeList($type,$page,$model);
@@ -63,6 +70,11 @@ class CodeBusiness
             if(count($result) < config('typeToQuantity')[$type]){
                 $result = $this->generateCodeList($type,$page,$model);
             }
+        }
+        //如果随机数 不符合 要求
+        if(count($result)!= $rankCount){
+            shuffle($result); //调用现成的数组随机排列函数
+            $result = array_slice($result, 0, $rankCount); //截取前$limit个
         }
         return Helper::returnFromat(200,trans('message.read-success'),$result);
     }
@@ -154,5 +166,11 @@ class CodeBusiness
             $model->where('id', '>', 1)->delete();
 
         }
+    }
+
+    public function test(){
+        $redis = app()->get('redis');
+        $redis->sAdd('my_test','11','12','13','14','15','16','17','18','19','20');
+        var_dump($redis->sRandMember('my_test',3));
     }
 }

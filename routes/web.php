@@ -19,6 +19,6 @@ $router->group(['middleware' => ['LoadIp']], function () use ($router){
     $router->get('/{type}/create/{code}' , 'CodeController@create');
 });
 //读取助力码
-$router->get('/{type}/read' , 'CodeController@read');
+$router->get('/{type}/read/{rankCount}' , 'CodeController@read');
 //读取助力码数量
 $router->get('/{type}/count' , 'CodeController@count');

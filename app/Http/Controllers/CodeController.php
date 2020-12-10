@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Business\CodeBusiness;
-use App\Http\Business\ConversionBusiness;
-use App\Http\Common\Helper;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Redis;
+use App\Http\Business\V2\CodeBusiness;
 
 class CodeController extends Controller
 {
@@ -26,8 +22,8 @@ class CodeController extends Controller
         return $this->code_business->create($type,$code);
     }
 
-    public function read($type) {
-        return $this->code_business->read($type);
+    public function read($type,$rankCount) {
+        return $this->code_business->read($type,$rankCount);
     }
 
     public function count($type) {

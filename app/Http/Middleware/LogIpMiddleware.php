@@ -16,8 +16,11 @@ class LogIpMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $ignore = [
-        ];
+        //没有开启数据的情况下，跳过中间件
+        if(!env('MYSQL_USE',false)){
+            return $next($request);
+        }
+        $ignore = [];
         //控制不走中间件的
         if(in_array($request->fullUrl() ,$ignore )
         || $_SERVER['REMOTE_ADDR'] == env('APP_IP',"localhost")

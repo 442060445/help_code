@@ -2,7 +2,7 @@
 
 
 namespace App\Console\Commands;
-use App\Http\Business\CodeBusiness;
+use App\Http\Business\V1\CodeBusiness;
 use Illuminate\Console\Command;
 
 class ResetDailyCommand extends Command

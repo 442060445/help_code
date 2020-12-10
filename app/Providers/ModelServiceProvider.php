@@ -18,8 +18,8 @@ class ModelServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //IP记录MODEL
         $this->app->bind('LoadIpModel' ,LoadIP::class);
-
         //京东种豆
         $this->app->bind('JdBeanModel' ,JdBean::class);
 
