@@ -55,3 +55,17 @@ APP_LOCALE=en
 ```
 MAX_OUTPUT_TIME=输入最大次数
 ```
+----
+###两个清空脚本
+- 每日执行 - 缓存清0 的
+在项目路径下，执行 
+```
+php artisan reset_daily
+```
+
+
+- 周期执行 - 清所有的助力码的
+在项目路径下，执行 
+```
+php artisan reset_weekly
+```
