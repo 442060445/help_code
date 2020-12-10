@@ -71,7 +71,9 @@ $app->configure('app');
 | route or middleware that'll be assigned to some specific routes.
 |
 */
-
+$app->routeMiddleware([
+    'LoadIp' => App\Http\Middleware\LogIpMiddleware::class
+]);
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);

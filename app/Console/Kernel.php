@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\ResetDailyCommand;
+use App\Console\Commands\ResetWeeklyCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 

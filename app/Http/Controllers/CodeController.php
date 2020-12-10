@@ -29,4 +29,8 @@ class CodeController extends Controller
     public function read($type) {
         return $this->code_business->read($type);
     }
+
+    public function count($type) {
+        return $this->code_business->count($type);
+    }
 }

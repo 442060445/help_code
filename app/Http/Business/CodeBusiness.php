@@ -49,7 +49,7 @@ class CodeBusiness
             $page = 0;
             Cache::put($type."_page",$page,86400);
         }
-        if(empty(Cache::get($type."_".$page."_time")) || Cache::get($type."_".$page."_time") >= env('MAX-OUTPUT-TIME',25)){
+        if(empty(Cache::get($type."_".$page."_time")) || Cache::get($type."_".$page."_time") >= env('MAX_OUTPUT_TIME',25)){
             $page ++;
             $result = $this->generateCodeList($type,$page,$model);
             // @TODO 改页数缓存 要+1
@@ -138,9 +138,10 @@ class CodeBusiness
          * $type_page => 用来存页面（每夜重置到1） 定义为$page
          * $type_$page_time => 都要置零或者。
          */
-        $typeArray = config('typeToModel');
-        $typeArray = array_keys($typeArray);
+        $typeArrayModel = config('typeToModel');
+        $typeArray = array_keys($typeArrayModel);
         foreach ($typeArray as $type){
+            //清理缓存区
             if(!empty($page = Cache::get($type."_page"))){
                 for ($i = 1;$i<=$page ;$i++){
                     Cache::forget($type."_".$i.'_time');
@@ -148,6 +149,10 @@ class CodeBusiness
                 }
             }
             Cache::put($type."_page",1);
+            //清理数据库
+            $model = app()->get($typeArrayModel[$type]);
+            $model->where('id', '>', 1)->delete();
+
         }
     }
 }

@@ -50,3 +50,8 @@ APP_LOCALE=en
 ####语言包存放路径：
 - `resource/lang/en`
 - `resource/lang/zh-CN`
+
+####规定每组助力码输出的最大次数
+```
+MAX_OUTPUT_TIME=输入最大次数
+```

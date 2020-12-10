@@ -17,8 +17,6 @@ class LogIpMiddleware
     public function handle($request, Closure $next)
     {
         $ignore = [
-            "https://lumen.chiang.fun/api/online-checker",
-            "https://lumen.chiang.fun/jdcookie"
         ];
         //控制不走中间件的
         if(in_array($request->fullUrl() ,$ignore )

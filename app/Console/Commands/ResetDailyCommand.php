@@ -39,6 +39,6 @@ class ResetDailyCommand extends Command
     {
         //这里编写需要执行的动作
         (new CodeBusiness())->ResetDaily();
-        echo "执行完成！";
+        echo "执行完成！".PHP_EOL;
     }
 }
