@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ResetDailyCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 
@@ -14,6 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        ResetDailyCommand::class,  //每日置零脚本
+        ResetWeeklyCommand::class  // 周期性置零
     ];
 
     /**
