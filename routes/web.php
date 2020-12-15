@@ -11,8 +11,9 @@
 |
 */
 
-//测试路由
-$router->get('test' , 'ExampleController@test');
+$router->get('/', function () use ($router) {
+    return $router->app->version();
+});
 
 //加入助力码
 $router->group(['middleware' => ['LoadIp']], function () use ($router){
