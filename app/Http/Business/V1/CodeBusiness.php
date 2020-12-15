@@ -168,9 +168,32 @@ class CodeBusiness
         }
     }
 
-    public function test(){
-        $redis = app()->get('redis');
-        $redis->sAdd('my_test','11','12','13','14','15','16','17','18','19','20');
-        var_dump($redis->sRandMember('my_test',3));
+    /**
+     * @function-remark:返回清理日期
+     * @return \Illuminate\Http\JsonResponse
+     * @author Lin ShiXuan
+     * @date: 2020/12/15 15:33
+     */
+    public function CleanTime(){
+        $cleanDay = env('WEEKLY_CLEAN_DAY',"1,10,20");
+        return Helper::returnFromat(200,trans('message.clean-day').$cleanDay.trans('message.clean-day-end'),[]);
+    }
+
+    /**
+     * @function-remark:执行清理操作
+     * @return string
+     * @author Lin ShiXuan
+     * @date: 2020/12/15 15:33
+     */
+    public function Clean() {
+        $cleanDay = env('WEEKLY_CLEAN_DAY',"1,10,20");
+        $cleanDayArray = explode(',',$cleanDay);
+        //执行日清，日清V1为清理次数
+        $this->ResetDaily();
+        //周期清，在数组内的话就直接执行。
+        if(in_array(date('d'),$cleanDayArray)){
+            $this->ResetWeekly();
+        }
+        return "Success";
     }
 }

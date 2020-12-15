@@ -2,7 +2,7 @@
 
 
 namespace App\Console\Commands;
-use App\Http\Business\V1\CodeBusiness;
+use App\Http\Business\V2\CodeBusiness;
 use Illuminate\Console\Command;
 
 class ResetDailyCommand extends Command
@@ -38,7 +38,7 @@ class ResetDailyCommand extends Command
     public function handle()
     {
         //这里编写需要执行的动作
-        (new CodeBusiness())->ResetDaily();
+        (new CodeBusiness())->Clean();
         echo "执行完成！".PHP_EOL;
     }
 }

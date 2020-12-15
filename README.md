@@ -74,18 +74,16 @@ app/Console/Commands/ResetWeeklyCommand.php
 
 ----
 ###两个清空脚本
-- 每日执行 - 缓存清0 的
-在项目路径下，执行 
+```
+WEEKLY_CLEAN_DAY=1,10,20
+```
+只要开启每天跑清理，加上这个上面的值，就可以时间日清周期清了。
+默认值是1,10,20 。
+脚本是 
 ```
 php artisan reset_daily
 ```
-
-
-- 周期执行 - 清所有的助力码的
-在项目路径下，执行 
-```
-php artisan reset_weekly
-```
+设置定时任务，1 0 * * *  在本项目路径下，执行这个就可以了。
 
 ---
 #### 添加一个新类别要做的事

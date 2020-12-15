@@ -29,4 +29,8 @@ class CodeController extends Controller
     public function count($type) {
         return $this->code_business->count($type);
     }
+
+    public function cleanTime() {
+        return $this->code_business->clean();
+    }
 }

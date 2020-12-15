@@ -2,7 +2,7 @@
 
 
 namespace App\Console\Commands;
-use App\Http\Business\V1\CodeBusiness;
+use App\Http\Business\V2\CodeBusiness;
 use Illuminate\Console\Command;
 
 class ResetWeeklyCommand extends Command
