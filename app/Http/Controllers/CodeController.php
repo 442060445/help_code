@@ -31,6 +31,6 @@ class CodeController extends Controller
     }
 
     public function cleanTime() {
-        return $this->code_business->clean();
+        return $this->code_business->CleanTime();
     }
 }

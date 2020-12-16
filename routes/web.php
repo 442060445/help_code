@@ -25,4 +25,6 @@ $router->group(['prefix' => '/api/v1/jd'], function () use ($router) {
     $router->get('/{type}/read/{rankCount}', 'CodeController@read');
 //读取助力码数量
     $router->get('/{type}/count', 'CodeController@count');
+    //读取助力码数量
+    $router->get('/cleantimeinfo', 'CodeController@cleanTime');
 });
