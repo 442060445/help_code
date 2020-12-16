@@ -15,11 +15,14 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+//数据系统
+$router->group(['prefix' => '/api/v1/jd'], function () use ($router) {
 //加入助力码
-$router->group(['middleware' => ['LoadIp']], function () use ($router){
-    $router->get('/{type}/create/{code}' , 'CodeController@create');
-});
+    $router->group(['middleware' => ['LoadIp']], function () use ($router) {
+        $router->get('/{type}/create/{code}', 'CodeController@create');
+    });
 //读取助力码
-$router->get('/{type}/read/{rankCount}' , 'CodeController@read');
+    $router->get('/{type}/read/{rankCount}', 'CodeController@read');
 //读取助力码数量
-$router->get('/{type}/count' , 'CodeController@count');
+    $router->get('/{type}/count', 'CodeController@count');
+});
