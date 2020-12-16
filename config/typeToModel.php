@@ -2,5 +2,6 @@
 return [
     //对应model名
     'bean' => 'JdBeanModel',
-    'jdh' => 'JdHealthModel'
+    'jdh' => 'JdHealthModel',
+    'jdzz' => 'JdZZModel',
 ];

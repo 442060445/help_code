@@ -9,6 +9,10 @@ use App\Http\Common\Helper;
 class CodeBusiness
 {
     public function create($type,$code){
+        //创建时助力码3个字要被过滤
+        if(strpos($code, '助') !== false){
+            return Helper::returnFromat(200,trans('message.add-success'),[]);
+        }
         //初始化model
         $typeArray = config('typeToModel');
         //Redis 名称自动过滤掉后面的Model
