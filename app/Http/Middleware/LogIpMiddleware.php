@@ -17,7 +17,7 @@ class LogIpMiddleware
     public function handle($request, Closure $next)
     {
         //没有开启数据的情况下，跳过中间件
-        if(!env('MYSQL_USE',false)){
+        if(env('MYSQL_USE',false)){
             return $next($request);
         }
         $ignore = [];
