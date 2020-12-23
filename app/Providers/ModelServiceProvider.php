@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\JdBean;
+use App\Models\JdCrazyJoy;
 use App\Models\JdJdh;
 use App\Models\JdJdzz;
 use App\Models\LoadIP;
@@ -28,12 +29,14 @@ class ModelServiceProvider extends ServiceProvider
         $this->app->bind('JdHealthModel' ,JdJdh::class);
         //京东赚赚
         $this->app->bind('JdZZModel' ,JdJdzz::class);
+        //疯狂的京东
+        $this->app->bind('JdCrazyJoyModel' ,JdCrazyJoy::class);
     }
 
     public function provides()
     {
         return [
-            'JdBeanModel','LoadIpModel','JdZZModel','JdHealthModel'
+            'JdBeanModel','LoadIpModel','JdZZModel','JdHealthModel','JdCrazyJoyModel'
         ];
     }
 }

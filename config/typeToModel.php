@@ -4,4 +4,6 @@ return [
     'bean' => 'JdBeanModel',
     'jdh' => 'JdHealthModel',
     'jdzz' => 'JdZZModel',
+    'jdcrazyjoy' => 'JdCrazyJoyModel',
+
 ];
