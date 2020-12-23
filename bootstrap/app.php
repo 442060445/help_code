@@ -72,7 +72,8 @@ $app->configure('app');
 |
 */
 $app->routeMiddleware([
-    'LoadIp' => App\Http\Middleware\LogIpMiddleware::class
+    'LoadIp' => App\Http\Middleware\LogIpMiddleware::class,
+    'IpLimit' => App\Http\Middleware\IpLimitMiddleware::class
 ]);
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class

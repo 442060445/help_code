@@ -7,5 +7,6 @@ return [
     'read-success' => 'Read Code Success',
     'count' => 'Number of people currently boarding:',
     'clean-day' => 'Database Will Clear In Per Month ',
-    'clean-day-end' => '.'
+    'clean-day-end' => '.',
+    'frequently' => 'You Are Too Frequently Request,Please Request Again After 1 Hour.'
 ];

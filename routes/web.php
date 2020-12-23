@@ -18,7 +18,7 @@ $router->get('/', function () use ($router) {
 //数据系统
 $router->group(['prefix' => '/api/v1/jd'], function () use ($router) {
 //加入助力码
-    $router->group(['middleware' => ['LoadIp']], function () use ($router) {
+    $router->group(['middleware' => ['LoadIp','IpLimit']], function () use ($router) {
         $router->get('/{type}/create/{code}', 'CodeController@create');
     });
 //读取助力码
@@ -27,4 +27,12 @@ $router->group(['prefix' => '/api/v1/jd'], function () use ($router) {
     $router->get('/{type}/count', 'CodeController@count');
     //读取助力码数量
     $router->get('/cleantimeinfo', 'CodeController@cleanTime');
+});
+
+$router->group(['middleware' => ['IpLimit']],function () use ($router){
+    //测试
+    $router->get('/test', function () use ($router) {
+        return $router->app->version();
+    });
+
 });
