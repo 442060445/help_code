@@ -8,5 +8,9 @@ return [
     'count' => '助力列表数量 为:',
     'clean-day' => '每月的',
     'clean-day-end' => '号，数据将会被清空',
-    'frequently' => '您的请求太频繁了,1小时后再来吧'
+    'type_frequently' => '您的单个类型请求太频繁了, '
+        .env('TYPE_MAX_IP_LIMIT_TIME',600).'秒后再来吧 .',
+    'frequently' => '您的请求本项目太频繁了, '
+        .env('MAX_IP_LIMIT_TIME',600).'秒后再来吧 .'
+
 ];

@@ -5,10 +5,15 @@
 namespace App\Http\Business\V2;
 
 use App\Http\Common\Helper;
+use App\Http\Common\IpLimit;
 
 class CodeBusiness
 {
     public function create($type,$code){
+        //访问频率检查
+        if(!IpLimit::check($type)){
+            return Helper::returnFromat(400,trans('message.type_frequently'),[]);
+        }
         //创建时助力码3个字要被过滤
         if(strpos(urldecode($code), '助') !== false || strpos($code,"share") !== false
             || strpos($code, "code") !== false){

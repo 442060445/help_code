@@ -61,6 +61,15 @@ MAX_OUTPUT_TIME=输入最大次数
 MYSQL_USE = false/true        意思：不使用/使用
 ```
 
+####IP限制
+```
+MAX_IP_LIMIT=8     意思是限定规定时间内只能访问次数
+MAX_IP_LIMIT_TIME=600     意思是限定规定时间
+
+TYPE_MAX_IP_LIMIT=8      意思是单个类型限定规定时间内只能访问次数
+TYPE_MAX_IP_LIMIT_TIME=3600   意思是单个类型限定规定时间
+```
+
 ---
 ####版本选择
 改这个选择  选择引入的包  ( V1 /  V2 )\CodeBusiness。

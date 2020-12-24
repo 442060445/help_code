@@ -2,11 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\Component\ipLocation\IpLocation;
 use App\Http\Common\Helper;
 use Closure;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Redis;
 
 class IpLimitMiddleware
 {
@@ -26,15 +24,15 @@ class IpLimitMiddleware
         //获取那个人的IP
         $ip = $_SERVER['REMOTE_ADDR'];
         //key命名
-        $cacheKey = $prefix.$type."-".$ip;
+        $cacheKey = $prefix.$ip;
         $time = Cache::get($cacheKey);
         if(empty($time)){
-            Cache::put($cacheKey,1,3600);
+            Cache::put($cacheKey,1,env('MAX_IP_LIMIT_TIME',3600));
         }else {
             Cache::increment($cacheKey,1);
         }
         //超过禁止往下执行了
-        if(Cache::get($cacheKey) > env('MAX_IP_LIMIT',5)){
+        if(Cache::get($cacheKey) > env('MAX_IP_LIMIT',25)){
             return Helper::returnFromat(400,trans('message.frequently'),[]);
         }
 
