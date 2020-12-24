@@ -4,4 +4,5 @@ return [
     'bean' => '10',
     'jdh' => '10',
     'jdzz' => '10',
+    'jdcrazyjoy' => '10',
 ];
