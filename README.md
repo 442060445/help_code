@@ -195,6 +195,13 @@ php artisan reset_daily
 
 - 访问 ： 域名/别名/count，如果可以返回的话，那么就成功啦
 
+###整理好发给@lxk0301
+京东序互助码api 
+https://域名/api/v1/jd/xxx/create/助力码/
+查看上车人数
+https://域名/api/v1/jd/xxx/count
+获取助力码
+https://域名/api/v1/jd/xxx/read/随机数
 ---
 
 
