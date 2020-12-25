@@ -11,6 +11,8 @@ return [
     'type_frequently' => '您的单个类型请求太频繁了, '
         .env('TYPE_MAX_IP_LIMIT_TIME',600).'秒后再来吧 .',
     'frequently' => '您的请求本项目太频繁了, '
-        .env('MAX_IP_LIMIT_TIME',600).'秒后再来吧 .'
+        .env('MAX_IP_LIMIT_TIME',600).'秒后再来吧 .',
+    'not-allow-keyword' => '检查到有不允许加入的关键词'
+
 
 ];
