@@ -14,8 +14,9 @@ class CodeBusiness
         if(!IpLimit::check($type)){
             return Helper::returnFromat(400,trans('message.type_frequently'),[]);
         }
-        //创建时助力码3个字要被过滤
-        if(strpos(urldecode($code), '助') !== false || strpos($code,"share") !== false
+        //走正则校验方法
+        //创建时2个词要被过滤
+        if(!Helper::checkCode($type,urldecode($code)) || strpos($code,"share") !== false
             || strpos($code, "code") !== false){
             return Helper::returnFromat(400,trans('message.not-allow-keyword'),[]);
         }

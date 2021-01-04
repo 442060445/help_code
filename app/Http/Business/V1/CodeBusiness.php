@@ -21,6 +21,12 @@ class CodeBusiness
         }else{
             $model = app()->get($typeArray[$type]);
         }
+        //走正则校验方法
+        //创建时2个词要被过滤
+        if(!Helper::checkCode($type,$code) || strpos($code,"share") !== false
+            || strpos($code, "code") !== false){
+            return Helper::returnFromat(400,trans('message.not-allow-keyword'),[]);
+        }
         //检查是否存在
         if($model->where('code',$code)->count()){
             //存在，返回
