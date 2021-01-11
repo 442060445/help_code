@@ -5,4 +5,6 @@ return [
     'jdh' => '10',
     'jdzz' => '10',
     'jdcrazyjoy' => '10',
+    'jdbookshop' => '20',
+
 ];

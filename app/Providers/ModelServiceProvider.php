@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\JdBean;
+use App\Models\JdBookshop;
 use App\Models\JdCrazyJoy;
 use App\Models\JdJdh;
 use App\Models\JdJdzz;
@@ -31,6 +32,9 @@ class ModelServiceProvider extends ServiceProvider
         $this->app->bind('JdZZModel' ,JdJdzz::class);
         //疯狂的京东
         $this->app->bind('JdCrazyJoyModel' ,JdCrazyJoy::class);
+        //京东书店
+        $this->app->bind('JdBookshopModel' ,JdBookshop::class);
+
     }
 
     public function provides()
