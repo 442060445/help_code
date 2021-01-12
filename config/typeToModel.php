@@ -6,5 +6,6 @@ return [
     'jdzz' => 'JdZZModel',
     'jdcrazyjoy' => 'JdCrazyJoyModel',
     'jdbookshop' => 'JdBookshopModel',
+    'jdcash' => 'JdCashModel',
 
 ];
